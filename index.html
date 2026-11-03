@@ -3,58 +3,208 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Keyboard</title>
+    <meta name="theme-color" content="#ffdf70" />
+    <meta name="description" content="A tiny corner of the internet for big smiles, bright colors, and happy little surprises." />
+    <title>A Happy Little Place ☀️</title>
     <style>
+      :root {
+        color-scheme: light;
+        font-family: "Trebuchet MS", "Arial Rounded MT Bold", system-ui, sans-serif;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      * { box-sizing: border-box; }
+
       body {
         margin: 0;
         min-height: 100vh;
+        overflow-x: hidden;
         display: grid;
         place-items: center;
-        background: #111;
+        padding: 32px 18px;
+        color: #54366f;
+        background:
+          radial-gradient(ellipse at 12% 18%, rgba(255,255,255,.72) 0 2%, transparent 2.5%),
+          radial-gradient(ellipse at 87% 78%, rgba(255,255,255,.58) 0 2.5%, transparent 3%),
+          linear-gradient(135deg, #ffe58a 0%, #ffc5dc 48%, #b8eaff 100%);
       }
-      img {
-        max-width: 90vw;
-        max-height: 90vh;
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        animation: figure-eight 6s linear infinite;
+
+      .page {
+        position: relative;
+        isolation: isolate;
+        width: min(100%, 760px);
+        padding: clamp(24px, 5vw, 48px);
+        text-align: center;
+        border: 3px solid rgba(255,255,255,.82);
+        border-radius: 36px;
+        background: rgba(255,255,255,.76);
+        box-shadow: 0 24px 70px rgba(111, 73, 139, .18), inset 0 0 0 1px rgba(255,255,255,.65);
+        backdrop-filter: blur(12px);
       }
-      @keyframes figure-eight {
-        0%, 50%, 100% { transform: translate(0, 0); }
-        6.25% { transform: translate(9.18px, 5.66px); }
-        12.5% { transform: translate(16.97px, 8px); }
-        18.75% { transform: translate(22.17px, 5.66px); }
-        25% { transform: translate(24px, 0); }
-        31.25% { transform: translate(22.17px, -5.66px); }
-        37.5% { transform: translate(16.97px, -8px); }
-        43.75% { transform: translate(9.18px, -5.66px); }
-        56.25% { transform: translate(-9.18px, 5.66px); }
-        62.5% { transform: translate(-16.97px, 8px); }
-        68.75% { transform: translate(-22.17px, 5.66px); }
-        75% { transform: translate(-24px, 0); }
-        81.25% { transform: translate(-22.17px, -5.66px); }
-        87.5% { transform: translate(-16.97px, -8px); }
-        93.75% { transform: translate(-9.18px, -5.66px); }
+
+      .sunshine {
+        display: inline-grid;
+        place-items: center;
+        width: 76px;
+        height: 76px;
+        margin-bottom: 10px;
+        border-radius: 50%;
+        background: #ffda58;
+        box-shadow: 0 0 0 10px rgba(255,218,88,.19), 0 8px 20px rgba(224,150,29,.2);
+        font-size: 42px;
+        animation: sunshine-bob 3s ease-in-out infinite;
       }
-      @media (prefers-reduced-motion: reduce) {
-        img { animation: none; }
+
+      h1 {
+        margin: 10px 0 8px;
+        color: #7045a0;
+        font-size: clamp(2.2rem, 7vw, 4.4rem);
+        line-height: 1.04;
+        letter-spacing: -.055em;
+        text-wrap: balance;
       }
+
+      .intro {
+        max-width: 520px;
+        margin: 0 auto 24px;
+        color: #745c83;
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
+        line-height: 1.65;
+      }
+
+      .photo-frame {
+        position: relative;
+        display: inline-block;
+        max-width: 100%;
+        padding: 10px;
+        border: 3px solid #fff;
+        border-radius: 25px;
+        background: linear-gradient(135deg, #ffcae2, #c8efff, #fff0a8);
+        box-shadow: 0 15px 34px rgba(107, 71, 133, .2);
+        animation: happy-float 5s ease-in-out infinite;
+      }
+
+      .photo-frame::before,
+      .photo-frame::after {
+        position: absolute;
+        z-index: 1;
+        font-size: clamp(24px, 5vw, 38px);
+        filter: drop-shadow(0 3px 4px rgba(95, 63, 117, .15));
+      }
+      .photo-frame::before { content: "✨"; top: -18px; left: -22px; }
+      .photo-frame::after { content: "💖"; right: -21px; bottom: -16px; }
+
+      .photo-frame img {
+        display: block;
+        width: min(100%, 520px);
+        max-height: 48vh;
+        object-fit: contain;
+        border-radius: 16px;
+      }
+
+      .cheer {
+        display: block;
+        margin: 23px 0 15px;
+        color: #e85d9e;
+        font-size: clamp(1.15rem, 3vw, 1.5rem);
+        font-weight: 800;
+      }
+
+      .rain-button {
+        appearance: none;
+        border: 0;
+        border-radius: 999px;
+        padding: 15px 25px;
+        color: #fff;
+        background: linear-gradient(135deg, #ff70a9, #a76be8);
+        box-shadow: 0 8px 0 #8e55c3, 0 12px 24px rgba(142,85,195,.24);
+        font: inherit;
+        font-size: 1rem;
+        font-weight: 800;
+        cursor: pointer;
+        touch-action: none;
+        transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+      }
+      .rain-button:hover { filter: brightness(1.06); transform: translateY(-2px); }
+      .rain-button:active,
+      .rain-button[aria-pressed="true"] {
+        transform: translateY(4px) scale(.98);
+        box-shadow: 0 3px 0 #8e55c3, 0 6px 14px rgba(142,85,195,.2);
+      }
+      .rain-button:focus-visible { outline: 4px solid #54366f; outline-offset: 5px; }
+
+      .hint {
+        margin: 13px 0 0;
+        color: #887a94;
+        font-size: .88rem;
+      }
+
+      .sprinkle {
+        position: fixed;
+        z-index: -1;
+        pointer-events: none;
+        font-size: clamp(20px, 4vw, 34px);
+        animation: drift 7s ease-in-out infinite;
+      }
+      .sprinkle.one { top: 9%; left: 8%; }
+      .sprinkle.two { top: 17%; right: 9%; animation-delay: -2s; }
+      .sprinkle.three { bottom: 10%; left: 11%; animation-delay: -4s; }
+      .sprinkle.four { right: 12%; bottom: 12%; animation-delay: -1s; }
+
       #character-rain {
         position: fixed;
         inset: 0;
         width: 100%;
         height: 100%;
         pointer-events: none;
-        z-index: 9999;
+        z-index: 5;
+      }
+
+      @keyframes sunshine-bob { 50% { transform: translateY(-7px) rotate(8deg); } }
+      @keyframes happy-float { 50% { transform: translateY(-7px) rotate(.6deg); } }
+      @keyframes drift { 50% { transform: translateY(-14px) rotate(12deg); } }
+
+      @media (max-width: 480px) {
+        .page { border-radius: 27px; }
+        .photo-frame img { max-height: 42vh; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: .01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: .01ms !important;
+        }
       }
     </style>
   </head>
   <body>
-    <img src="IMG_2847.JPG"/>
+    <span class="sprinkle one" aria-hidden="true">🌈</span>
+    <span class="sprinkle two" aria-hidden="true">⭐</span>
+    <span class="sprinkle three" aria-hidden="true">🌼</span>
+    <span class="sprinkle four" aria-hidden="true">🦋</span>
+
+    <main class="page">
+      <div class="sunshine" aria-hidden="true">☀️</div>
+      <h1>A Happy Little Place!</h1>
+      <p class="intro">Welcome to your daily dose of sunshine. Take a deep breath, find a little joy, and remember: you make the world brighter just by being you. 💛</p>
+      <div class="photo-frame">
+        <img src="IMG_2847.JPG" alt="A special photo, framed in a little extra happiness" />
+      </div>
+      <strong class="cheer">Sending you smiles, sparkles &amp; good vibes! ✨</strong>
+      <button class="rain-button" id="happy-button" type="button" aria-pressed="false">Hold for a happy surprise 🌟</button>
+      <p class="hint">Press and hold for a sprinkle of extra joy.</p>
+    </main>
+
     <canvas id="character-rain" aria-hidden="true"></canvas>
     <script>
       const canvas = document.getElementById('character-rain');
       const context = canvas.getContext('2d');
+      const button = document.getElementById('happy-button');
       const characters = ['tmcds1.png', 'tmcds2.png'].map((src) => {
         const image = new Image();
         image.src = src;
@@ -77,26 +227,43 @@
         context.setTransform(scale, 0, 0, scale, 0, 0);
       }
 
+      function startRain() {
+        if (held) return;
+        held = true;
+        button.setAttribute('aria-pressed', 'true');
+        if (frame === null) {
+          previousTime = performance.now();
+          spawnBudget = 30;
+          frame = requestAnimationFrame(animateRain);
+        }
+      }
+
+      function endRain() {
+        held = false;
+        button.setAttribute('aria-pressed', 'false');
+        spawnBudget = 0;
+      }
+
       function animateRain(time) {
         const elapsed = Math.min((time - previousTime) / 1000, 0.05);
         previousTime = time;
         context.clearRect(0, 0, width, height);
 
         if (held) {
-          spawnBudget += elapsed * 450;
+          spawnBudget += elapsed * 220;
           const count = Math.floor(spawnBudget);
           spawnBudget -= count;
-          for (let i = 0; i < count && drops.length < 1200; i++) {
-            const size = 18 + Math.random() * 18;
+          for (let i = 0; i < count && drops.length < 700; i++) {
+            const size = 22 + Math.random() * 22;
             drops.push({
               image: characters[Math.floor(Math.random() * characters.length)],
               x: Math.random() * width,
               y: -size,
               size,
-              speed: 500 + Math.random() * 600,
-              drift: (Math.random() - 0.5) * 140,
+              speed: 350 + Math.random() * 450,
+              drift: (Math.random() - 0.5) * 100,
               angle: Math.random() * Math.PI * 2,
-              spin: (Math.random() - 0.5) * 5,
+              spin: (Math.random() - 0.5) * 4,
             });
           }
         }
@@ -114,8 +281,7 @@
           context.save();
           context.translate(drop.x, drop.y);
           context.rotate(drop.angle);
-          context.drawImage(drop.image, -drop.size / 2, -drop.size / 2,
-            drop.size, drop.size);
+          context.drawImage(drop.image, -drop.size / 2, -drop.size / 2, drop.size, drop.size);
           context.restore();
         }
 
@@ -127,32 +293,28 @@
         }
       }
 
+      button.addEventListener('pointerdown', (event) => {
+        event.preventDefault();
+        button.setPointerCapture(event.pointerId);
+        startRain();
+      });
+      button.addEventListener('pointerup', endRain);
+      button.addEventListener('pointercancel', endRain);
+      button.addEventListener('lostpointercapture', endRain);
+
       function isAltGr(event) {
         return event.key === 'AltGraph' || event.code === 'AltRight';
       }
-
       window.addEventListener('keydown', (event) => {
-        if (!isAltGr(event)) return;
-        held = true;
-        if (event.repeat) return;
-        const now = performance.now();
-        if (frame === null) {
-          previousTime = now;
-          spawnBudget = 30;
-          frame = requestAnimationFrame(animateRain);
-        }
+        if (isAltGr(event)) startRain();
       });
       window.addEventListener('keyup', (event) => {
-        if (isAltGr(event)) {
-          held = false;
-          spawnBudget = 0;
-        }
+        if (isAltGr(event)) endRain();
       });
 
       function stopRain() {
-        held = false;
+        endRain();
         drops.length = 0;
-        spawnBudget = 0;
         if (frame !== null) cancelAnimationFrame(frame);
         frame = null;
         context.clearRect(0, 0, width, height);
